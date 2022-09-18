@@ -17,6 +17,7 @@ namespace CLIP.Net
         public float[] GetTextEmbeddings(string text) => _clipText.GetEmbeddings(_tokenizer.EncodeForCLIP(text));
 
         public float[] GetImageEmbeddings(string imagePath) => _clipImage.GetEmbeddings(ImageConverter.GetImageData(imagePath));
+        public float[] GetImageEmbeddingsVips(string imagePath) => _clipImage.GetEmbeddings(VipsImageConverter.GetImageData(imagePath));
         public float[] GetImageEmbeddings(Stream imageData) => _clipImage.GetEmbeddings(ImageConverter.GetImageData(imageData));
 
         public float Compare(float[] A, float[] B) => EmbeddingsComparer.Compare(A, B);
